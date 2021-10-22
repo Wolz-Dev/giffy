@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+const GIFS = [
+  'https://media0.giphy.com/media/iMYbnEuQ36GezAw9nF/200w.webp',
+  'https://media0.giphy.com/media/4GIvR6cmYs8jC/200w.webp',
+  'https://media2.giphy.com/media/3oKIPdL94CCIbgVcRy/giphy.gif?cid=ecf05e4743827591e2f7207a8d86122421ab9908828beb1d&rid=giphy.gif&ct=g'
+]
+  ;
+
 function App() {
+  const [gifs, setGifs] = useState(GIFS)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-content">
+        {
+          gifs.map(singleGif => <img src={singleGif} />)
+        }
+
+      </section>
     </div>
   );
 }
